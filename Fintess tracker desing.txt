@@ -10,9 +10,13 @@ https://github.com/kritika27/fitness-tracker-mern-stack-app
 Figma design:
 
 1st Priority
+
+https://www.figma.com/community/file/1419647097513875100/fitmove-fitness-workout-tracking-admin-dashboard
+
 https://www.figma.com/design/wfNXi8lHSgPGDvRtNYvl5d/Fitness-Tracker--Community-?t=nhQGHOa1SLlgx2Jo-0
 
 some others
+
 
 
 https://themewagon.com/themes/fitness-template/
