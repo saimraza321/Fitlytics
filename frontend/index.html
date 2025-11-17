@@ -32,7 +32,7 @@
         <div class="min-h-screen flex">
             <!-- SIDEBAR -->
             <aside
-                class="hidden xl:flex flex-col w-64 bg-[#FFFCFB] rounded-[2rem] p-4 m-[1rem]"
+                class="hidden xl:flex flex-col w-64 bg-[#FFFCFB] rounded-[2rem] p-4 m-[1rem] sticky top-[1rem] right-0 overflow-hidden h-[94vh] "
             >
                 <!-- Logo -->
                 <div class="flex items-center w-full">
@@ -46,11 +46,11 @@
                     >
                         <span class="font-medium"><i class="fa-regular fa-house mr-2"></i>Dashboard</span>
                     </button>
-                    <button
+                    <!-- <button
                         class="w-full flex items-center gap-3 p-[0.8rem] rounded-[2rem] hover:bg-[#DAF17D] text-black transition ease duration-300 hover:mx-2"
                     >
                         <span><i class="fa-solid fa-chart-area mr-2"></i>Statistics</span>
-                    </button>
+                    </button> -->
                     <button
                         class="w-full flex items-center gap-3 p-[0.8rem] rounded-[2rem] hover:bg-[#DAF17D] text-black transition ease duration-300  hover:mx-2"
                     >
@@ -61,21 +61,21 @@
                     >
                         <span><i class="fa-solid fa-calendar mr-2"></i>Schedule</span>
                     </button>
-                    <button
+                    <!-- <button
                         class="w-full flex items-center gap-3 p-[0.8rem] rounded-[2rem] hover:bg-[#DAF17D] text-black transition ease duration-300  hover:mx-2"
                     >
                         <span><i class="fa-solid fa-play mr-2"></i>Classes</span>
-                    </button>
-                    <button
-                        class="w-full flex items-center gap-3 p-[0.8rem] rounded-[2rem] hover:bg-[#DAF17D] text-black transition ease duration-300  hover:mx-2"
-                    >
-                        <span><i class="fa-solid fa-address-card mr-2"></i>Trainers</span>
-                    </button>
-                    <button
-                        class="w-full flex items-center gap-3 p-[0.8rem] rounded-[2rem] hover:bg-[#DAF17D] text-black transition ease duration-300  hover:mx-2"
-                    >
-                        <span><i class="fa-regular fa-comment mr-2"></i>Messages</span>
-                    </button>
+                    </button> -->
+                        <!-- <button
+                            class="w-full flex items-center gap-3 p-[0.8rem] rounded-[2rem] hover:bg-[#DAF17D] text-black transition ease duration-300  hover:mx-2"
+                        >
+                            <span><i class="fa-solid fa-address-card mr-2"></i>Trainers</span>
+                        </button>
+                        <button
+                            class="w-full flex items-center gap-3 p-[0.8rem] rounded-[2rem] hover:bg-[#DAF17D] text-black transition ease duration-300  hover:mx-2"
+                        >
+                            <span><i class="fa-regular fa-comment mr-2"></i>Messages</span>
+                        </button> -->
                     <button
                         class="w-full flex items-center gap-3 p-[0.8rem] rounded-[2rem] hover:bg-[#DAF17D] text-black transition ease duration-300  hover:mx-2"
                     >
@@ -98,7 +98,7 @@
 
             <!-- MAIN WRAPPER -->
             <main
-                class="flex-1 flex flex-col xl:flex-row gap-4 p-4 xl:p-6 bg-[#EFEFF1]"
+                class="flex-1 flex flex-col xl:flex-row gap-4 p-4 xl:p-6 bg-[#EFEFF1] overflow-y-scroll"
             >
                 <!-- CENTER COLUMN -->
                 <section class="flex-1 flex flex-col gap-4">
