@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fit Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <style>
+      * {
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+      /* Scrollbar thodi clean */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(148, 163, 184, 0.7);
+        border-radius: 999px;
+      }
+    </style>
+  </head>
+  <body class="bg-[#EFEFF1] text-slate-700">
+    <div class="min-h-screen flex">
+      <!-- SIDEBAR -->
+      <aside
+        class="hidden xl:flex flex-col w-64 bg-[#FFFCFB] rounded-[2rem] p-4 m-[1rem] sticky top-[1rem] right-0 overflow-hidden h-[94vh]"
+      >
+        <!-- Logo -->
+        <div class="flex items-center w-full">
+          <img src="logo.png" class="mb-5" />
+        </div>
+
+        <!-- Nav -->
+        <nav class="space-y-1 text-sm">
+          <a
+            href="index.html"
+            class="w-full flex items-center gap-3 p-[0.8rem] rounded-[2rem] hover:bg-[#DAF17D] text-black transition ease duration-300"
+          >
+            <span class="font-medium"
+              ><i class="fa-regular fa-house mr-2"></i>Dashboard</span
+            >
+          </a>
+          <!-- <button
+                        class="w-full flex items-center gap-3 p-[0.8rem] rounded-[2rem] hover:bg-[#DAF17D] text-black transition ease duration-300 hover:mx-2"
+                    >
+                        <span><i class="fa-solid fa-chart-area mr-2"></i>Statistics</span>
+                    </button> -->
+          <a
+            href="exercises.html"
+            class="w-full flex items-center gap-3 p-[0.8rem] rounded-[2rem] bg-[#DAF17D] text-black transition ease duration-300 hover:mx-2"
+          >
+            <span><i class="fa-solid fa-dumbbell mr-2"></i>Exercises</span>
+          </a>
+          <button
+            class="w-full flex items-center gap-3 p-[0.8rem] rounded-[2rem] hover:bg-[#DAF17D] text-black transition ease duration-300 hover:mx-2"
+          >
+            <span><i class="fa-solid fa-calendar mr-2"></i>Schedule</span>
+          </button>
+          <!-- <button
+                        class="w-full flex items-center gap-3 p-[0.8rem] rounded-[2rem] hover:bg-[#DAF17D] text-black transition ease duration-300  hover:mx-2"
+                    >
+                        <span><i class="fa-solid fa-play mr-2"></i>Classes</span>
+                    </button> -->
+          <!-- <button
+                            class="w-full flex items-center gap-3 p-[0.8rem] rounded-[2rem] hover:bg-[#DAF17D] text-black transition ease duration-300  hover:mx-2"
+                        >
+                            <span><i class="fa-solid fa-address-card mr-2"></i>Trainers</span>
+                        </button>
+                        <button
+                            class="w-full flex items-center gap-3 p-[0.8rem] rounded-[2rem] hover:bg-[#DAF17D] text-black transition ease duration-300  hover:mx-2"
+                        >
+                            <span><i class="fa-regular fa-comment mr-2"></i>Messages</span>
+                        </button> -->
+          <button
+            class="w-full flex items-center gap-3 p-[0.8rem] rounded-[2rem] hover:bg-[#DAF17D] text-black transition ease duration-300 hover:mx-2"
+          >
+            <span><i class="fa-solid fa-person-running mr-2"></i>Progress</span>
+          </button>
+          <button
+            class="w-full flex items-center gap-3 p-[0.8rem] rounded-[2rem] hover:bg-[#DAF17D] text-black transition ease duration-300"
+          >
+            <span><i class="fa-solid fa-bowl-rice mr-2"></i>Meal Plan</span>
+          </button>
+          <button
+            class="w-full flex items-center gap-3 p-[0.8rem] rounded-[2rem] hover:bg-[#DAF17D] text-black transition ease duration-300 hover:mx-2"
+          >
+            <span
+              ><i class="fa-solid fa-arrow-right-from-bracket mr-2"></i
+              >Logout</span
+            >
+          </button>
+        </nav>
+      </aside>
+
+      <!-- MAIN WRAPPER -->
+      <main
+        class="flex-1 flex flex-col gap-4 p-4 xl:p-6 bg-[#EFEFF1] overflow-y-scroll"
+      >
+        <!-- PAGE HEADER -->
+        <div class="flex justify-between items-center">
+          <h1 class="text-2xl font-semibold">Exercises</h1>
+
+          <div class="flex items-center gap-3">
+            <button class="p-2 bg-white rounded-full shadow">
+              <i class="fa-solid fa-bell text-gray-500"></i>
+            </button>
+
+            <button class="p-2 bg-white rounded-full shadow">
+              <i class="fa-solid fa-gear text-gray-500"></i>
+            </button>
+
+            <div
+              class="flex items-center gap-2 bg-white p-1 pr-3 rounded-full shadow"
+            >
+              <img
+                src="https://i.pravatar.cc/40"
+                class="w-8 h-8 rounded-full"
+              />
+              <span class="text-sm font-medium">Kalendra Wingman</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filters -->
+        <div
+          class="flex items-center justify-between bg-white p-3 rounded-2xl shadow"
+        >
+          <!-- LEFT SIDE (Search + Filters) -->
+          <div class="flex items-center gap-3 flex-wrap">
+            <!-- SEARCH BAR -->
+            <div
+              class="flex items-center bg-gray-100 px-4 py-2 rounded-full w-72"
+            >
+              <i
+                class="fa-solid fa-magnifying-glass text-gray-500 mr-2 text-sm"
+              ></i>
+              <input
+                placeholder="Search for exercise"
+                class="bg-transparent focus:outline-none w-full text-sm"
+              />
+            </div>
+
+            <!-- FILTER 1 -->
+            <select class="bg-gray-100 p-2 px-4 rounded-full text-sm">
+              <option>Status</option>
+              <option>Completed</option>
+              <option>In Progress</option>
+              <option>Not Started</option>
+            </select>
+
+            <!-- FILTER 2 -->
+            <select class="bg-gray-100 p-2 px-4 rounded-full text-sm">
+              <option>This Week</option>
+              <option>Last Week</option>
+            </select>
+          </div>
+
+          <!-- RIGHT SIDE (Add Button) -->
+          <button
+            class="bg-[#9AE66E] px-6 py-2 rounded-full font-medium text-sm shadow"
+          >
+            + Add Exercise
+          </button>
+        </div>
+
+        <!-- TABLE -->
+        <div class="bg-white rounded-2xl shadow overflow-hidden">
+          <table class="min-w-full text-sm">
+            <thead class="bg-gray-100 text-gray-600 text-xs uppercase">
+              <tr>
+                <th class="py-4 px-5 text-left">Exercise Name</th>
+                <th class="py-4 px-5 text-left">Sets</th>
+                <th class="py-4 px-5 text-left">Step 1</th>
+                <th class="py-4 px-5 text-left">Step 2</th>
+                <th class="py-4 px-5 text-left">Weight</th>
+                <th class="py-4 px-5 text-left">Calories</th>
+                <th class="py-4 px-5 text-left">Status</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <!-- ROW -->
+              <tr class="border-b hover:bg-gray-50">
+                <td class="py-4 px-5 flex items-center gap-3">
+                  <span
+                    class="w-8 h-8 bg-[#DAF17D] rounded-full flex items-center justify-center text-lg"
+                    >🏋️</span
+                  >
+                  Squats
+                </td>
+                <td class="py-4 px-5">4</td>
+                <td class="py-4 px-5">12 repetitions</td>
+                <td class="py-4 px-5">60 seconds</td>
+                <td class="py-4 px-5">40 kg</td>
+                <td class="py-4 px-5">180 cal</td>
+                <td class="py-4 px-5">
+                  <span
+                    class="px-3 py-1 bg-[#DFF7D8] text-green-600 rounded-full text-xs"
+                    >Completed</span
+                  >
+                </td>
+              </tr>
+
+              <tr class="border-b hover:bg-gray-50">
+                <td class="py-4 px-5 flex items-center gap-3">
+                  <span
+                    class="w-8 h-8 bg-[#FFD46F] rounded-full flex items-center justify-center text-lg"
+                    >🔥</span
+                  >
+                  Deadlift
+                </td>
+                <td class="py-4 px-5">3</td>
+                <td class="py-4 px-5">10 repetitions</td>
+                <td class="py-4 px-5">90 seconds</td>
+                <td class="py-4 px-5">250 kg</td>
+                <td class="py-4 px-5">220 cal</td>
+                <td class="py-4 px-5">
+                  <span
+                    class="px-3 py-1 bg-[#FFF2CC] text-yellow-600 rounded-full text-xs"
+                    >In Progress</span
+                  >
+                </td>
+              </tr>
+
+              <tr class="hover:bg-gray-50">
+                <td class="py-4 px-5 flex items-center gap-3">
+                  <span
+                    class="w-8 h-8 bg-[#CFE2FF] rounded-full flex items-center justify-center text-lg"
+                    >💪</span
+                  >
+                  Bench Press
+                </td>
+                <td class="py-4 px-5">1</td>
+                <td class="py-4 px-5">8 repetitions</td>
+                <td class="py-4 px-5">60 seconds</td>
+                <td class="py-4 px-5">60 kg</td>
+                <td class="py-4 px-5">150 cal</td>
+                <td class="py-4 px-5">
+                  <span
+                    class="px-3 py-1 bg-gray-200 text-gray-600 rounded-full text-xs"
+                    >Not Started</span
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
