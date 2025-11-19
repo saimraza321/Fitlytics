@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Progress - Fit Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <style>
+      * {
+        font-family: "Poppins", sans-serif;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #efeff1;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #daf17d;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #c5d96e;
+      }
+    </style>
+  </head>
+  <body class="bg-[#EFEFF1] text-slate-700">
+    <!-- Mobile Hamburger -->
+    <button id="hamburgerBtn" class="md:hidden p-4 fixed top-4 left-4 z-50">
+      <i class="fa-solid fa-bars text-2xl"></i>
+    </button>
+
+    <!-- Screen Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black/50 hidden z-40"></div>
+
+    <div class="min-h-screen flex">
+      <!-- SIDEBAR -->
+      <aside
+        id="sidebar"
+        class="hidden xl:flex md:flex-col md:w-20 xl:w-64 bg-[#FFFCFB] rounded-[2rem] p-4 m-[1rem] md:sticky md:top-[1rem] md:h-[94vh] fixed top-0 left-0 h-full z-50 md:relative -translate-x-full md:translate-x-0 transition-all duration-300"
+      >
+        <div class="flex items-center w-full">
+          <img src="logo.png" class="mb-5 w-[60%] mx-auto" />
+        </div>
+
+        <nav class="space-y-1 text-sm">
+          <a
+            href="index.html"
+            class="w-full flex items-center gap-3 p-[0.8rem] rounded-[2rem] hover:bg-[#DAF17D] text-black transition ease duration-300"
+          >
+            <i class="fa-regular fa-house"></i>
+            <span class="hidden xl:inline sidebar-text font-medium"
+              >Dashboard</span
+            >
+          </a>
+
+          <a
+            href="exercises.html"
+            class="w-full flex items-center gap-3 p-[0.8rem] rounded-[2rem] hover:bg-[#DAF17D] text-black transition ease duration-300"
+          >
+            <i class="fa-solid fa-dumbbell"></i>
+            <span class="hidden xl:inline sidebar-text">Exercises</span>
+          </a>
+
+          <a
+            href="schedule.html"
+            class="w-full flex items-center gap-3 p-[0.8rem] rounded-[2rem] hover:bg-[#DAF17D] text-black transition ease duration-300"
+          >
+            <i class="fa-solid fa-calendar"></i>
+            <span class="hidden xl:inline sidebar-text">Schedule</span>
+          </a>
+
+          <a
+            href="progress.html"
+            class="w-full flex items-center gap-3 p-[0.8rem] rounded-[2rem] bg-[#DAF17D] text-black transition ease duration-300"
+          >
+            <i class="fa-solid fa-person-running"></i>
+            <span class="hidden xl:inline sidebar-text">Progress</span>
+          </a>
+
+          <a
+            href="mealplan.html"
+            class="w-full flex items-center gap-3 p-[0.8rem] rounded-[2rem] hover:bg-[#DAF17D] text-black transition ease duration-300"
+          >
+            <i class="fa-solid fa-bowl-rice"></i>
+            <span class="hidden xl:inline sidebar-text">Meal Plan</span>
+          </a>
+
+          <button
+            class="w-full flex items-center gap-3 p-[0.8rem] rounded-[2rem] hover:bg-[#DAF17D] text-black transition ease duration-300"
+          >
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span class="hidden xl:inline sidebar-text">Logout</span>
+          </button>
+        </nav>
+      </aside>
+
+      <!-- MAIN WRAPPER -->
+      <main
+        class="flex-1 flex flex-col gap-4 p-4 xl:p-6 bg-[#EFEFF1] overflow-y-scroll"
+      >
+        <!-- PAGE HEADER -->
+        <div class="flex justify-between items-center">
+          <h1 class="text-2xl font-semibold">Exercises</h1>
+
+          <div class="flex items-center gap-3">
+            <button class="p-2 bg-white rounded-full shadow">
+              <i class="fa-solid fa-bell text-gray-500"></i>
+            </button>
+
+            <button class="p-2 bg-white rounded-full shadow">
+              <i class="fa-solid fa-gear text-gray-500"></i>
+            </button>
+
+            <div
+              class="flex items-center gap-2 bg-white p-1 pr-3 rounded-full shadow"
+            >
+              <img
+                src="https://i.pravatar.cc/40"
+                class="w-8 h-8 rounded-full"
+              />
+              <span class="text-sm font-medium">Kalendra Wingman</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-3 rounded-2xl shadow">
+          <!-- Filters -->
+          <div class="flex items-center justify-between bg-white p-3 mb-3">
+            <!-- LEFT SIDE (Search + Filters) -->
+            <div class="flex items-center gap-3 flex-wrap">
+              <!-- SEARCH BAR -->
+              <div
+                class="flex items-center bg-gray-100 px-4 py-2 rounded-full w-72"
+              >
+                <i
+                  class="fa-solid fa-magnifying-glass text-gray-500 mr-2 text-sm"
+                ></i>
+                <input
+                  placeholder="Search for exercise"
+                  class="bg-transparent focus:outline-none w-full text-sm"
+                />
+              </div>
+
+              <!-- FILTER 1 -->
+              <select class="bg-gray-100 p-2 px-4 rounded-full text-sm">
+                <option>Status</option>
+                <option>Completed</option>
+                <option>In Progress</option>
+                <option>Not Started</option>
+              </select>
+
+              <!-- FILTER 2 -->
+              <select class="bg-gray-100 p-2 px-4 rounded-full text-sm">
+                <option>This Week</option>
+                <option>Last Week</option>
+              </select>
+            </div>
+
+            <!-- RIGHT SIDE (Add Button) -->
+            <button
+              data-modal-target="exercise-modal"
+              data-modal-toggle="exercise-modal"
+              class="bg-[#daf27a] px-6 py-2 rounded-full font-medium text-sm shadow"
+            >
+              <i class="fa-solid fa-plus"></i>
+              Add Exercise
+            </button>
+          </div>
+
+          <!-- TABLE -->
+          <div class="bg-white overflow-hidden">
+            <table class="min-w-full text-sm">
+              <thead
+                class="bg-[#f2f9ff] text-gray-600 text-xs uppercase rounded-2xl"
+              >
+                <tr class="rounded-2xl">
+                  <th class="py-4 px-5 text-left font-xl font-medium">
+                    Exercise Name
+                  </th>
+                  <th class="py-4 px-5 text-left font-xl font-medium">Sets</th>
+                  <th class="py-4 px-5 text-left font-xl font-medium">
+                    Step 1
+                  </th>
+                  <th class="py-4 px-5 text-left font-xl font-medium">
+                    Step 2
+                  </th>
+                  <th class="py-4 px-5 text-left font-xl font-medium">
+                    Weight
+                  </th>
+                  <th class="py-4 px-5 text-left font-xl font-medium">
+                    Calories
+                  </th>
+                  <th class="py-4 px-5 text-left font-xl font-medium">
+                    Status
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <!-- ROW -->
+                <tr class="border-b hover:bg-gray-50">
+                  <td class="py-4 px-5 flex items-center gap-3">
+                    <span
+                      class="w-8 h-8 bg-[#DAF17D] rounded-full flex items-center justify-center text-lg"
+                    ></span>
+                    Squats
+                  </td>
+                  <td class="py-4 px-5">4</td>
+                  <td class="py-4 px-5">12 repetitions</td>
+                  <td class="py-4 px-5">60 seconds</td>
+                  <td class="py-4 px-5">40 kg</td>
+                  <td class="py-4 px-5">180 cal</td>
+                  <td class="py-4 px-5">
+                    <span
+                      class="px-3 py-1 bg-[#DFF7D8] text-green-600 rounded-full text-xs"
+                      >Completed</span
+                    >
+                  </td>
+                </tr>
+
+                <tr class="border-b hover:bg-gray-50">
+                  <td class="py-4 px-5 flex items-center gap-3">
+                    <span
+                      class="w-8 h-8 bg-[#FFD46F] rounded-full flex items-center justify-center text-lg"
+                    ></span>
+                    Deadlift
+                  </td>
+                  <td class="py-4 px-5">3</td>
+                  <td class="py-4 px-5">10 repetitions</td>
+                  <td class="py-4 px-5">90 seconds</td>
+                  <td class="py-4 px-5">250 kg</td>
+                  <td class="py-4 px-5">220 cal</td>
+                  <td class="py-4 px-5">
+                    <span
+                      class="px-3 py-1 bg-[#FFF2CC] text-yellow-600 rounded-full text-xs"
+                      >In Progress</span
+                    >
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-gray-50">
+                  <td class="py-4 px-5 flex items-center gap-3">
+                    <span
+                      class="w-8 h-8 bg-[#CFE2FF] rounded-full flex items-center justify-center text-lg"
+                    ></span>
+                    Bench Press
+                  </td>
+                  <td class="py-4 px-5">1</td>
+                  <td class="py-4 px-5">8 repetitions</td>
+                  <td class="py-4 px-5">60 seconds</td>
+                  <td class="py-4 px-5">60 kg</td>
+                  <td class="py-4 px-5">150 cal</td>
+                  <td class="py-4 px-5">
+                    <span
+                      class="px-3 py-1 bg-gray-200 text-gray-600 rounded-full text-xs"
+                      >Not Started</span
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Add Exercise Modal -->
+    <div
+      id="exercise-modal"
+      tabindex="-1"
+      aria-hidden="true"
+      class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+    >
+      <div class="relative p-4 w-full max-w-2xl max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow p-6">
+          <!-- Modal header -->
+          <div class="flex items-center justify-between border-b pb-4 mb-4">
+            <h3 class="text-lg font-semibold text-gray-900">
+              Add New Exercise
+            </h3>
+            <button
+              type="button"
+              class="text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center"
+              data-modal-hide="exercise-modal"
+            >
+              <svg
+                class="w-3 h-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 14"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                />
+              </svg>
+              <span class="sr-only">Close modal</span>
+            </button>
+          </div>
+
+          <!-- Modal body -->
+          <form>
+            <div class="grid gap-4 grid-cols-2">
+              <!-- Exercise Name -->
+              <div class="col-span-2">
+                <label class="block mb-2 text-sm font-medium text-gray-900"
+                  >Exercise Name</label
+                >
+                <input
+                  type="text"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#DAF17D] focus:border-[#DAF17D] block w-full p-2.5"
+                  placeholder="e.g., Squats, Push-ups"
+                  required
+                />
+              </div>
+
+              <!-- Sets -->
+              <div class="col-span-2 sm:col-span-1">
+                <label class="block mb-2 text-sm font-medium text-gray-900"
+                  >Sets</label
+                >
+                <input
+                  type="number"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#DAF17D] focus:border-[#DAF17D] block w-full p-2.5"
+                  placeholder="4"
+                  required
+                />
+              </div>
+
+              <!-- Step 1 (Repetitions) -->
+              <div class="col-span-2 sm:col-span-1">
+                <label class="block mb-2 text-sm font-medium text-gray-900"
+                  >Step 1 (Repetitions)</label
+                >
+                <input
+                  type="text"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#DAF17D] focus:border-[#DAF17D] block w-full p-2.5"
+                  placeholder="12 repetitions"
+                  required
+                />
+              </div>
+
+              <!-- Step 2 (Rest Time) -->
+              <div class="col-span-2 sm:col-span-1">
+                <label class="block mb-2 text-sm font-medium text-gray-900"
+                  >Step 2 (Rest Time)</label
+                >
+                <input
+                  type="text"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#DAF17D] focus:border-[#DAF17D] block w-full p-2.5"
+                  placeholder="60 seconds"
+                  required
+                />
+              </div>
+
+              <!-- Weight -->
+              <div class="col-span-2 sm:col-span-1">
+                <label class="block mb-2 text-sm font-medium text-gray-900"
+                  >Weight (kg)</label
+                >
+                <input
+                  type="number"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#DAF17D] focus:border-[#DAF17D] block w-full p-2.5"
+                  placeholder="40"
+                  required
+                />
+              </div>
+
+              <!-- Calories -->
+              <div class="col-span-2 sm:col-span-1">
+                <label class="block mb-2 text-sm font-medium text-gray-900"
+                  >Calories</label
+                >
+                <input
+                  type="number"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#DAF17D] focus:border-[#DAF17D] block w-full p-2.5"
+                  placeholder="180"
+                  required
+                />
+              </div>
+
+              <!-- Status -->
+              <div class="col-span-2 sm:col-span-1">
+                <label class="block mb-2 text-sm font-medium text-gray-900"
+                  >Status</label
+                >
+                <select
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#DAF17D] focus:border-[#DAF17D] block w-full p-2.5"
+                >
+                  <option>Not Started</option>
+                  <option>In Progress</option>
+                  <option>Completed</option>
+                </select>
+              </div>
+
+              <!-- Color/Category -->
+              <div class="col-span-2 sm:col-span-1">
+                <label class="block mb-2 text-sm font-medium text-gray-900"
+                  >Category Color</label
+                >
+                <select
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#DAF17D] focus:border-[#DAF17D] block w-full p-2.5"
+                >
+                  <option value="#DAF17D">Green</option>
+                  <option value="#FFD46F">Yellow</option>
+                  <option value="#CFE2FF">Blue</option>
+                  <option value="#FFB4B4">Red</option>
+                  <option value="#D4C5F9">Purple</option>
+                </select>
+              </div>
+
+              <!-- Notes/Description (Optional) -->
+              <div class="col-span-2">
+                <label class="block mb-2 text-sm font-medium text-gray-900"
+                  >Notes (Optional)</label
+                >
+                <textarea
+                  rows="3"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#DAF17D] focus:border-[#DAF17D] block w-full p-2.5"
+                  placeholder="Add any additional notes about this exercise..."
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-4 mt-6 pt-4 border-t">
+              <button
+                type="submit"
+                class="text-black bg-[#DAF17D] hover:bg-[#c5dc6a] font-medium rounded-lg text-sm px-5 py-2.5"
+              >
+                <i class="fa-solid fa-plus mr-1"></i>
+                Add Exercise
+              </button>
+              <button
+                data-modal-hide="exercise-modal"
+                type="button"
+                class="text-gray-700 bg-gray-200 hover:bg-gray-300 font-medium rounded-lg text-sm px-5 py-2.5"
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <script>
+      const sidebar = document.getElementById("sidebar");
+      const hamburgerBtn = document.getElementById("hamburgerBtn");
+      const overlay = document.getElementById("overlay");
+
+      hamburgerBtn.addEventListener("click", () => {
+        sidebar.classList.remove("-translate-x-full");
+        overlay.classList.remove("hidden");
+      });
+
+      overlay.addEventListener("click", () => {
+        sidebar.classList.add("-translate-x-full");
+        overlay.classList.add("hidden");
+      });
+    </script>
+  </body>
+</html>
