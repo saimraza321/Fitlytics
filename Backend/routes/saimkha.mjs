@@ -4,3 +4,4 @@ CLOUDINARY_kEY=668321521445711
 JWT_SECRET="FitLytics123456789"
 EMAIL_USER="raja.yousuf63@gmail.com"
 EMAIL_PASS="qchw yewl miwu dlfc"
+ 
