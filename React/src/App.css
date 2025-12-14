@@ -1,0 +1,136 @@
+@import "tailwindcss";
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+} */
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 65px;
+  aspect-ratio: 1;
+  position: relative;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  border-radius: 50px;
+  box-shadow: 0 0 0 3px inset #daf17d;
+  animation: l4 2.5s infinite;
+}
+.loader:after {
+  animation-delay: -1.25s;
+}
+@keyframes l4 {
+  0% {
+    inset: 0 35px 35px 0;
+  }
+  12.5% {
+    inset: 0 35px 0 0;
+  }
+  25% {
+    inset: 35px 35px 0 0;
+  }
+  37.5% {
+    inset: 35px 0 0 0;
+  }
+  50% {
+    inset: 35px 0 0 35px;
+  }
+  62.5% {
+    inset: 0 0 0 35px;
+  }
+  75% {
+    inset: 0 0 35px 35px;
+  }
+  87.5% {
+    inset: 0 0 35px 0;
+  }
+  100% {
+    inset: 0 35px 35px 0;
+  }
+}
+
+/* ✅ SweetAlert2 Global Styles */
+.swal-custom-popup {
+  background-color: #ffffff !important;
+}
+
+.swal-custom-title {
+  color: #1e293b !important; /* Dark slate */
+  font-weight: 600 !important;
+}
+
+.swal-custom-text {
+  color: #475569 !important; /* Slate gray */
+}
+
+.swal-custom-confirm {
+  background-color: #84cc16 !important; /* Lime green */
+  color: #1e293b !important; /* Dark text */
+  font-weight: 600 !important;
+  border: none !important;
+  padding: 10px 24px !important;
+  border-radius: 8px !important;
+}
+
+.swal-custom-confirm:hover {
+  background-color: #65a30d !important;
+}
+
+.swal-custom-cancel {
+  background-color: #ef4444 !important; /* Red */
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border: none !important;
+  padding: 10px 24px !important;
+  border-radius: 8px !important;
+}
+
+.swal-custom-cancel:hover {
+  background-color: #dc2626 !important;
+}
+
+/* ✅ Input fields in Swal */
+.swal2-input {
+  color: #1e293b !important;
+  border: 1px solid #cbd5e1 !important;
+}
